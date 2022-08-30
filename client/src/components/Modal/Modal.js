@@ -1,13 +1,22 @@
 import React from "react";
+import "./modal.css";
 
-export const Modal = ({ title, children, className, succesBtn, cancelBtn }) => {
+export const Modal = ({
+  open,
+  title,
+  children,
+  className,
+  succesBtn,
+  closeModal
+}) => {
   return (
-    <div className="b-modal">
-      <div className="b-modal__header">{title}</div>
-      <div className="b-modal__body">{children}</div>
-      <div className="b-modal__footer">
-        <button className={className}>{succesBtn}</button>
-        <button className={className}>{cancelBtn}</button>
+    <div className={open ? "b-modal" : "b-modal__hide"}>
+      <div className="b-modal__content">
+        <div className="b-modal__header">{title}</div>
+        <div className="b-modal__body">{children}</div>
+        <div className="b-modal__footer">
+          <button className={className} onClick={closeModal}>{succesBtn}</button>
+        </div>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { links } from '../../utils/linksRouters';
 import { Avatar } from '../../components/Avatar/Avatar';
+import './leftSide.css';
 
 export const LeftSide = ({ nameuser }) => {
     return (

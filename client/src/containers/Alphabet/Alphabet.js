@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import { LeftSide } from "../components/LeftSide/LeftSide";
-import { RightSide } from "../components/RightSide/RightSide";
+import { LeftSide } from "../../components/LeftSide/LeftSide";
+import { Modal } from "../../components/Modal/Modal";
+import { RightSide } from "../../components/RightSide/RightSide";
+import { Voices } from "../../components/Voices/Voices";
+import './alphabet.css';
 
 const ruAlphabet = [
   "А",
@@ -37,10 +40,15 @@ const ruAlphabet = [
 
 export const Alphabet = () => {
   const [letterValue, setLetterValue] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   const handleChooseLetter = (e) => {
     setLetterValue([...letterValue, e.target.innerHTML]);
   };
+
+  const handleShowModal = () => {
+    setShowModal(!showModal);
+  }
 
   const removeLetter = () => {
     const removeItem = letterValue.slice(0, -1);
@@ -55,16 +63,16 @@ export const Alphabet = () => {
           <div className="b-alphabet__list">
             {ruAlphabet.map((item) => {
               return (
-                <div key={item} className="b-alphabet__item">
+                <div key={item} className="b-alphabet__item" onClick={handleShowModal}>
                   <div
                     className="b-alphabet__uppercase"
-                    onClick={(e) => handleChooseLetter(e)}
+                    // onClick={(e) => handleChooseLetter(e)}
                   >
                     {item}
                   </div>
                   <div
                     className="b-alphabet__lowercase"
-                    onClick={(e) => handleChooseLetter(e)}
+                    // onClick={(e) => handleChooseLetter(e)}
                   >
                     {item.toLowerCase()}
                   </div>
@@ -87,6 +95,13 @@ export const Alphabet = () => {
             ""
           )}
         </div>
+        <Modal
+          open={showModal}
+          title='Test'
+          children={<Voices />}
+          succesBtn='Отлично'
+          closeModal={() => setShowModal(false)}
+        />
       </RightSide>
     </div>
   );

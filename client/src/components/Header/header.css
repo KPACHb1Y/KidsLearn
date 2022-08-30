@@ -1,0 +1,5 @@
+.b-header {
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    width: 100%;
+}

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Alphabet } from '../containers/Alphabet';
-import { Auth } from '../containers/Auth';
-import { Cartoons } from '../containers/Cartoons';
-import { Draw } from '../containers/Draw';
-import { Litreature } from '../containers/Litreature';
-import { Math } from '../containers/Math';
-import { Music } from '../containers/Music';
+import { Alphabet } from '../containers/Alphabet/Alphabet';
+import { Auth } from '../containers/Auth/Auth';
+import { Cartoons } from '../containers/Cartoons/Cartoons';
+import { Draw } from '../containers/Draw/Draw';
+import { Litreature } from '../containers/Litreature/Litreature';
+import { Math } from '../containers/Math/Math';
+import { Music } from '../containers/Music/Music';
 
 export const AppRouter = () => {
     return (
